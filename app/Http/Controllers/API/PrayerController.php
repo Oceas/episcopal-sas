@@ -58,4 +58,44 @@ class PrayerController extends Controller
         return response()->json(['message' => 'Prayer request created successfully!'], 201);
     }
 
+    public function prayed_for(Prayer $prayer) {
+        $prayer->prayed_for();
+        // Your logic here, using the $prayer model instance resolved by UUID
+        return response()->json(['message' => 'Prayer has been marked as prayed for!', 'prayer' => $prayer], 200);
+    }
+
+    public function reported(Prayer $prayer, Request $request)
+    {
+        // Step 1: Validate input
+        $validator = Validator::make($request->all(), [
+            'reported_reason' => 'required|string|in:mistake,inappropriate,other',
+            'reported_text' => 'nullable|string',
+        ]);
+
+        // Step 2: Additional validation to ensure 'reported_text' is required if 'reported_reason' is 'other'
+        $validator->after(function ($validator) use ($request) {
+            if ($request->input('reported_reason') === 'other' && empty($request->input('reported_text'))) {
+                $validator->errors()->add('reported_text', 'The reported text is required when the reported reason is other.');
+            }
+        });
+
+        // Step 3: Check if validation fails
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Validation errors',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $prayer->reported_reason = $request->input('reported_reason');
+        $prayer->reported_text = $request->input('reported_text');
+        $prayer->reported = $prayer->reported + 1;
+        $prayer->save();
+
+
+        // Step 5: Return success response
+        return response()->json(['message' => 'Prayer has been reported!'], 200);
+    }
+
+
 }

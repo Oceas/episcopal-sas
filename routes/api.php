@@ -15,3 +15,5 @@ Route::post('newsletter', [NewsletterController::class, 'store']);
 
 Route::get('prayer', [PrayerController::class, 'index']);
 Route::post('prayer', [PrayerController::class, 'store']);
+Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed_for']); // Route using UUID
+Route::post('prayer/{prayer:uuid}/reported', [PrayerController::class, 'reported']); // Route using UUID

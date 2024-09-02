@@ -27,4 +27,10 @@ class Prayer extends Model
         });
     }
 
+    public function prayed_for()
+    {
+        $this->prayed_for = $this->prayed_for + 1;
+        $this->save();
+    }
+
 }
