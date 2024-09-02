@@ -37,9 +37,12 @@ class VOTD extends Model
         $month = $currentDate->format('m'); // e.g., 09
         $day = $currentDate->format('d'); // e.g., 02
 
-        $votd = self::where('year', $year)->where('month', $month)->where('day', $day)->get();
+        $votd = self::where('year', $year)
+            ->where('month', $month)
+            ->where('day', $day)
+            ->first();
 
-        if ($votd->isEmpty()) {
+        if ( ! $votd ) {
 
             // Make the HTTP GET request to fetch the verse of the day
             try {

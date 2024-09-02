@@ -15,7 +15,10 @@ class VODController extends Controller
 {
 
     public function index() {
+
         $verse = VOTD::getVerseOfTheDay();
+
+        return $verse;
 
         if (!$verse) {
             return response()->json([
