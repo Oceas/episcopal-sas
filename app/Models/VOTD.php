@@ -61,8 +61,6 @@ class VOTD extends Model
                             'reference' => $verseData['votd']['reference'],
                             'version_id' => $verseData['votd']['version_id'],
                         ]);
-
-                        ray($votd);
                     } else {
                         // Log unexpected response structure or handle it accordingly
                         return null;
