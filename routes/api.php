@@ -13,7 +13,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('analytics', [AnalyticsController::class, 'store']);
 
-Route::get('vod', [VodController::class, 'index']);
+Route::get('votd', [VodController::class, 'index']);
 Route::post('newsletter', [NewsletterController::class, 'store']);
 Route::get('prayer', [PrayerController::class, 'index']);
 Route::post('prayer', [PrayerController::class, 'store']);

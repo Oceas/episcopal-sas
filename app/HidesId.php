@@ -19,6 +19,7 @@ trait HidesId
         unset($array['reported']);
         unset($array['reported_reason']);
         unset($array['reported_text']);
+        unset($array['id']);
 
         return $array;
     }
