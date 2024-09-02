@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\Api\NewsletterController;
 use App\Http\Controllers\Api\PrayerController;
 use App\Http\Controllers\API\VODController;
@@ -10,9 +11,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::post('analytics', [AnalyticsController::class, 'store']);
+
 Route::get('vod', [VodController::class, 'index']);
 Route::post('newsletter', [NewsletterController::class, 'store']);
-
 Route::get('prayer', [PrayerController::class, 'index']);
 Route::post('prayer', [PrayerController::class, 'store']);
 Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed_for']); // Route using UUID
