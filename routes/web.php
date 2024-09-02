@@ -3,6 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Disable the /register route by overriding it with a message or redirect
+Route::get('/register', function () {
+    return 'We do not allow registration at this time.';
+})->name('register');
+
+// Other routes
 Route::get('/', function () {
     return view('welcome');
 });
@@ -17,4 +23,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Include authentication routes
 require __DIR__.'/auth.php';
