@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('prayers', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('name');
             $table->text('request');
-            $table->integer('prayed_for');
-            $table->integer('reported');
+            $table->integer('prayed_for')->default(0);
+            $table->integer('reported')->default(0);
+            $table->boolean('public')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,4 +31,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('prayers');
     }
+
 };
