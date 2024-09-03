@@ -10,7 +10,6 @@ class VODController extends Controller
 
     public function index()
     {
-
         $verse = VOTD::getVerseOfTheDay();
 
         if (!$verse) {

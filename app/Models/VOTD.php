@@ -59,7 +59,7 @@ class VOTD extends Model
                             'year' => $year,
                             'month' => $month,
                             'day' => $day,
-                            'text' => $verseData['votd']['text'],
+                            'text' => html_entity_decode($verseData['votd']['text'], ENT_QUOTES | ENT_HTML5),
                             'content' => $verseData['votd']['content'],
                             'reference' => $verseData['votd']['reference'],
                             'version_id' => $verseData['votd']['version_id'],
@@ -72,8 +72,6 @@ class VOTD extends Model
                     return null;
                 }
             } catch (\Exception $e) {
-                // Log the exception for debugging purposes
-                ray($e->getMessage());
                 return null;
             }
         }
