@@ -11,6 +11,11 @@ class NewsletterController extends Controller
 {
 
     public function store(Request $request) {
+
+        $request->merge([
+            'email' => strtolower($request->input('email')),
+        ]);
+
         // Step 1: Validate input using Validator
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|string|max:255',
@@ -31,6 +36,6 @@ class NewsletterController extends Controller
         $newsletter = Newsletter::create($validator->validated());
 
         // Optionally, send a response or some feedback
-        return response()->json(['message' => 'Newsletter subscription created successfully!', 'data' => $newsletter], 201);
+        return response()->json([ 'success' => true, 'message' => 'Newsletter subscription created successfully!', 'data' => $newsletter], 201);
     }
 }
