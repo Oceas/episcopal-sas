@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\AnalyticsController;
-use App\Http\Controllers\Api\NewsletterController;
-use App\Http\Controllers\Api\PrayerController;
+use App\Http\Controllers\API\NewsletterController;
+use App\Http\Controllers\API\PrayerController;
 use App\Http\Controllers\API\VODController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
