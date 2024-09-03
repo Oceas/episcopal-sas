@@ -12,14 +12,19 @@ class PrayerController extends Controller
 {
 
     public function index() {
-        // Step 1: Query prayers that are public and not reported
+
         $prayers = Prayer::where('public', true)
             ->where('reported', 0)
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        // Step 2: Return the paginated prayers
-        return response()->json($prayers);
+        return response()->json([
+            'success' => true,
+            'message' => 'List all Prayers',
+            'data' => [
+                'prayers' => $prayers
+            ]
+        ], 200);
     }
 
 
@@ -54,8 +59,11 @@ class PrayerController extends Controller
             'uuid' => Str::uuid()->toString()
         ]);
 
-        // Step 6: Return success response
-        return response()->json(['message' => 'Prayer request created successfully!'], 201);
+        return response()->json([
+            'success' => true,
+            'message' => 'Prayer request received!',
+        ], 200);
+
     }
 
     public function prayed_for(Prayer $prayer) {
