@@ -100,9 +100,11 @@ class PrayerController extends Controller
         $prayer->reported = $prayer->reported + 1;
         $prayer->save();
 
-
         // Step 5: Return success response
-        return response()->json(['message' => 'Prayer has been reported!'], 200);
+        return response()->json([
+            'success'=> true,
+            'message' => 'Prayer has been reported!'
+        ], 200);
     }
 
 
