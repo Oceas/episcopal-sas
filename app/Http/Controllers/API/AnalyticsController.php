@@ -20,8 +20,9 @@ class AnalyticsController extends Controller
             'vid' => 'nullable|string|max:255',
             'event_name' => 'required|string|max:255',
             'event_details' => 'nullable|string|max:255',
-            'payload' => 'nullable|json',
+            'reference_url' => 'nullable|string|max:255',
             'app_version' => 'nullable|string|max:255',
+            'payload' => 'nullable|json',
         ]);
 
         // Check if the validation fails
@@ -53,6 +54,6 @@ class AnalyticsController extends Controller
         ]);
 
         // Return the created record as a JSON response with a 201 status code
-        return response()->json(['message' => 'Recorded', 'data' => $analytics], 201);
+        return response()->json(['succes' => true, 'message' => 'Recorded', 'data' => $analytics], 201);
     }
 }

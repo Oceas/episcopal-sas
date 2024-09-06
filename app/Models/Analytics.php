@@ -16,5 +16,6 @@ class Analytics extends Model
         'event_details',
         'payload',
         'app_version',
+        'reference_url'
     ];
 }
