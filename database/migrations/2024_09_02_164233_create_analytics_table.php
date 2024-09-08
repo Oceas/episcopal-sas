@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('reference_url')->nullable(); // 'uuid of video'
             $table->string('app_version')->nullable();
             $table->json('payload')->nullable(); // raw data optional for other detail we may want to source later
+            $table->string('ip')->nullable();
             $table->timestamps();
         });
     }

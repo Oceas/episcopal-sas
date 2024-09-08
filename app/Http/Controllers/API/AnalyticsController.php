@@ -51,6 +51,7 @@ class AnalyticsController extends Controller
             'event_details' => $data['event_details'] ?? null,
             'payload' => $data['payload'] ?? null,
             'app_version' => $data['app_version'] ?? null,
+            'ip' => $request->ip(),
         ]);
 
         // Return the created record as a JSON response with a 201 status code
