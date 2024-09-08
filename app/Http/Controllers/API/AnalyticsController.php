@@ -37,9 +37,8 @@ class AnalyticsController extends Controller
             $payload = trim($data['payload']);
             if ($payload === '' || strtolower($payload) === 'null') {
                 $data['payload'] = null;
-            } else {
-                $data['payload'] = json_decode($data['payload'], true); // Decode JSON to store it as an array or object
             }
+            // No need to decode the payload, as it should remain a JSON string
         }
 
         // Step to create analytics
@@ -49,12 +48,13 @@ class AnalyticsController extends Controller
             'vid' => $data['vid'] ?? null,
             'event_name' => $data['event_name'] ?? null,
             'event_details' => $data['event_details'] ?? null,
-            'payload' => $data['payload'] ?? null,
+            'payload' => $data['payload'] ?? null, // Store as JSON string
             'app_version' => $data['app_version'] ?? null,
             'ip' => $request->ip(),
         ]);
 
         // Return the created record as a JSON response with a 201 status code
-        return response()->json(['succes' => true, 'message' => 'Recorded', 'data' => $analytics], 201);
+        return response()->json(['success' => true, 'message' => 'Recorded', 'data' => $analytics], 201);
     }
+
 }
