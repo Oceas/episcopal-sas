@@ -33,9 +33,9 @@ class NewsletterController extends Controller
         }
 
         // Step 3: Create a new Newsletter record
-        $newsletter = Newsletter::create($validator->validated());
+        Newsletter::create($validator->validated());
 
         // Optionally, send a response or some feedback
-        return response()->json([ 'success' => true, 'message' => 'Newsletter subscription created successfully!', 'data' => $newsletter], 201);
+        return response()->json([ 'success' => true, 'message' => 'Newsletter subscription created successfully!'], 201);
     }
 }

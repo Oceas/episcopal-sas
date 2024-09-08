@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\API\NewsletterController;
 use App\Http\Controllers\API\PrayerController;
 use App\Http\Controllers\API\VODController;
+use App\Http\Controllers\API\LinksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,6 @@ Route::get('prayer', [PrayerController::class, 'index']);
 Route::post('prayer', [PrayerController::class, 'store']);
 Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed_for']); // Route using UUID
 Route::post('prayer/{prayer:uuid}/reported', [PrayerController::class, 'reported']); // Route using UUID
+
+
+Route::get('links/countdown', [LinksController::class,'countdown']);
