@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AnalyticsController;
+use App\Http\Controllers\API\DailyOfficeController;
 use App\Http\Controllers\API\NewsletterController;
 use App\Http\Controllers\API\PrayerController;
 use App\Http\Controllers\API\VODController;
@@ -21,5 +22,5 @@ Route::post('prayer', [PrayerController::class, 'store']);
 Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed_for']); // Route using UUID
 Route::post('prayer/{prayer:uuid}/reported', [PrayerController::class, 'reported']); // Route using UUID
 
-
 Route::get('links/countdown', [LinksController::class,'countdown']);
+Route::get('msc', [DailyOfficeController::class, 'missionStClareReading']);
