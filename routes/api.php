@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AnalyticsController;
 use App\Http\Controllers\API\DailyOfficeController;
 use App\Http\Controllers\API\NewsletterController;
+use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\PrayerController;
 use App\Http\Controllers\API\VODController;
 use App\Http\Controllers\API\LinksController;
@@ -17,6 +18,9 @@ Route::post('analytics', [AnalyticsController::class, 'store']);
 
 Route::get('votd', [VodController::class, 'index']);
 Route::post('newsletter', [NewsletterController::class, 'store']);
+
+Route::get('posts', [PostController::class, 'index']);
+
 Route::get('prayer', [PrayerController::class, 'index']);
 Route::post('prayer', [PrayerController::class, 'store']);
 Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed_for']); // Route using UUID
