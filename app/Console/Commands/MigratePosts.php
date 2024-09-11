@@ -50,7 +50,7 @@ class MigratePosts extends Command
                     // Update the existing post
                     $existingPost->update([
                         'title' => $post['title'],
-                        'slug' => $post['link'] ?? null, // Assuming the slug might not be provided
+                        'link' => $post['link'] ?? null, // Assuming the slug might not be provided
                         'excerpt' => $post['excerpt'] ?? null,
                         'content' => $post['content'] ?? null,
                         'publish_date' => $publishDate, // Use the formatted publish date
@@ -65,7 +65,7 @@ class MigratePosts extends Command
                         'uuid' => (string) \Str::uuid(), // Generating a UUID for the new post
                         'wp_post_id' => $post['id'],
                         'title' => $post['title'],
-                        'slug' => $post['link'] ?? null,
+                        'link' => $post['link'] ?? null,
                         'excerpt' => $post['excerpt'] ?? null,
                         'content' => $post['content'] ?? null,
                         'publish_date' => $publishDate, // Use the formatted publish date
