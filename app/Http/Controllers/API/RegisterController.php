@@ -11,8 +11,15 @@ class RegisterController extends Controller
 {
     public function register(Request $request)
     {
+        $requestData = $request->all();
+
+        if (isset($requestData['supported_cpu_architectures']) && is_array($requestData['supported_cpu_architectures'])) {
+            // Convert the array to a string (using JSON format for flexibility)
+            $requestData['supported_cpu_architectures'] = json_encode($requestData['supported_cpu_architectures']);
+        }
+
         // Validate the incoming request
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($requestData, [
             'device_id' => 'required|string',
             'app_version' => 'nullable|string',
             'brand' => 'nullable|string',
@@ -37,7 +44,7 @@ class RegisterController extends Controller
         }
 
         // Find or create the device using the Device model method
-        $device = Device::findOrCreateByDeviceId($request->all());
+        $device = Device::findOrCreateByDeviceId($requestData);
 
         // Return the device data as JSON response
         return response()->json([
@@ -48,4 +55,5 @@ class RegisterController extends Controller
             ]
         ], $device->wasRecentlyCreated ? 201 : 200);
     }
+
 }
