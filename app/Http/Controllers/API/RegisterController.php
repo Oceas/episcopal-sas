@@ -27,7 +27,7 @@ class RegisterController extends Controller
             'device_name' => 'nullable|string',
             'product_name' => 'nullable|string',
             'supported_cpu_architectures' => 'nullable|string',
-            'total_memory' => 'nullable|integer',
+            'total_memory' => 'nullable|numeric',
             'device_year_class' => 'nullable|integer',
             'manufacturer' => 'nullable|string',
             'model_id' => 'nullable|string',
