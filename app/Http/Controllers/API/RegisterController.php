@@ -19,9 +19,9 @@ class RegisterController extends Controller
             'design_name' => 'nullable|string',
             'device_name' => 'nullable|string',
             'product_name' => 'nullable|string',
-            'supported_cpu_architectures' => 'nullable|boolean',
-            'total_memory' => 'nullable|string',
-            'device_year_class' => 'nullable|string',
+            'supported_cpu_architectures' => 'nullable|string',
+            'total_memory' => 'nullable|integer',
+            'device_year_class' => 'nullable|integer',
             'manufacturer' => 'nullable|string',
             'model_id' => 'nullable|string',
             'model_name' => 'nullable|string',
@@ -43,7 +43,9 @@ class RegisterController extends Controller
         return response()->json([
             'success' => true,
             'message' => $device->wasRecentlyCreated ? 'Device registered successfully.' : 'Device found.',
-            'data' => $device
+            'data' => [
+                'VID' => $device->uuid
+            ]
         ], $device->wasRecentlyCreated ? 201 : 200);
     }
 }

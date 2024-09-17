@@ -23,8 +23,8 @@ class CreateDevicesTable extends Migration
             $table->string('device_name')->nullable();
             $table->string('product_name')->nullable();
             $table->string('supported_cpu_architectures')->nullable();
-            $table->string('total_memory')->nullable();
-            $table->string('device_year_class')->nullable();
+            $table->integer('total_memory')->nullable();
+            $table->integer('device_year_class')->nullable();
             $table->string('manufacturer')->nullable();
             $table->string('model_id')->nullable();
             $table->string('model_name')->nullable();
