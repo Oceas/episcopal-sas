@@ -56,4 +56,36 @@ class RegisterController extends Controller
         ], $device->wasRecentlyCreated ? 201 : 200);
     }
 
+    public function registerPushToken(Request $request)
+    {
+        // Validate the incoming request
+        $validator = Validator::make($request->all(), [
+            'vid' => 'required|string|exists:devices,vid', // Ensure the VID exists in the devices table
+            'push_token' => 'required|string',
+        ]);
+
+        // Return validation errors if any
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        // Find the device using VID
+        $device = Device::where('vid', $request->vid)->first();
+
+        // Update the push token
+        $device->push_token = $request->push_token;
+        $device->push_token_valid = true; // You may want to set this flag if applicable
+        $device->save();
+
+        // Return a success response
+        return response()->json([
+            'success' => true,
+            'message' => 'Push token registered successfully',
+        ], 200);
+    }
+
+
 }

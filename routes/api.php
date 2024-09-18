@@ -17,6 +17,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::post('register',[RegisterController::class,'register']);
+Route::post('register/push-token',[RegisterController::class,'registerPushToken']);
 
 Route::post('analytics', [AnalyticsController::class, 'store']);
 
