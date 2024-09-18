@@ -12,7 +12,7 @@ class Device extends Model
     use HasFactory, HidesId;
 
     protected $fillable = [
-        'uuid', 'device_id', 'app_version', 'brand', 'design_name',
+        'vid', 'device_id', 'app_version', 'brand', 'design_name',
         'device_name', 'product_name', 'supported_cpu_architectures',
         'total_memory', 'device_year_class', 'manufacturer', 'model_id',
         'model_name', 'os_build_id', 'os_long_name', 'os_name',
@@ -37,7 +37,7 @@ class Device extends Model
 
         // Otherwise, create a new device record
         return self::create([
-            'uuid' => Str::uuid(),
+            'vid' => Str::uuid(),
             'device_id' => $data['device_id'],
             'app_version' => $data['app_version'] ?? null,
             'brand' => $data['brand'] ?? null,

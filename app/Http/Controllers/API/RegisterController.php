@@ -51,7 +51,7 @@ class RegisterController extends Controller
             'success' => true,
             'message' => $device->wasRecentlyCreated ? 'Device registered successfully.' : 'Device found.',
             'data' => [
-                'VID' => $device->uuid
+                'VID' => $device->vid
             ]
         ], $device->wasRecentlyCreated ? 201 : 200);
     }
