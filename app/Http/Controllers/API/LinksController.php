@@ -28,8 +28,8 @@ class LinksController extends Controller
         return response()->json([
             'success' => true,
             'data' => [
-                'message' => 'Interested in a free Congregation Mobile App and Website?',
-                'link' => 'https://connectedchurch.app',
+                'message' => '',
+                'link' => '',
             ]
         ], 200);
     }
