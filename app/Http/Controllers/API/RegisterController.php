@@ -72,12 +72,25 @@ class RegisterController extends Controller
             ], 422);
         }
 
+        // Find any device that has the push_token, but is not the current device vid
+        $existingDeviceWithToken = Device::where('push_token', $request->push_token)
+            ->where('vid', '!=', $request->vid)
+            ->first();
+
+        if ($existingDeviceWithToken) {
+            // Clear the existing push_token and mark the device as inactive
+            $existingDeviceWithToken->push_token = null;
+            $existingDeviceWithToken->is_active = false; // Assuming you have this field
+            $existingDeviceWithToken->save();
+        }
+
         // Find the device using VID
         $device = Device::where('vid', $request->vid)->first();
 
         // Update the push token
         $device->push_token = $request->push_token;
-        $device->push_token_valid = true; // You may want to set this flag if applicable
+        $device->push_token_valid = true; // Set this flag if applicable
+        $device->is_active = true; // Assuming this is for active state
         $device->save();
 
         // Return a success response
