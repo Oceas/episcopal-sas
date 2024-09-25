@@ -32,4 +32,5 @@ Route::post('prayer/{prayer:uuid}/prayed-for', [PrayerController::class, 'prayed
 Route::post('prayer/{prayer:uuid}/reported', [PrayerController::class, 'reported']); // Route using UUID
 
 Route::get('links/countdown', [LinksController::class,'countdown']);
+Route::get('links/quick-message', [LinksController::class,'quickMessage']);
 Route::get('msc', [DailyOfficeController::class, 'missionStClareReading']);

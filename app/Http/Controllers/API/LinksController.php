@@ -22,4 +22,15 @@ class LinksController extends Controller
             ]
         ], 200);
     }
+
+    public function quickMessage()
+    {
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'message' => 'Interested in a free Congregation Mobile App and Website?',
+                'link' => 'https://connectedchurch.app',
+            ]
+        ], 200);
+    }
 }
