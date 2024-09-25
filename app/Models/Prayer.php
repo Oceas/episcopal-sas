@@ -15,7 +15,8 @@ class Prayer extends Model
         'name',
         'request',
         'public',
-        'uuid'
+        'uuid',
+        'created_at'
     ];
 
     protected static function booted()
