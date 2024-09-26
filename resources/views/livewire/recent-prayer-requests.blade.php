@@ -1,5 +1,7 @@
 <div wire:poll.2000ms>
 
+    <h1 class="text-xl mb-4 uppercase underline font-extrabold">Recent Prayer Requests</h1>
+
     @foreach ( $prayers as $prayer )
 
         <div class="divide-y divide-gray-200 overflow-hidden rounded-lg bg-white shadow mb-4">
