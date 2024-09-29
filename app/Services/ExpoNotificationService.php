@@ -39,8 +39,6 @@ class ExpoNotificationService
                 ];
             }, $deviceTokens);
 
-            ray($messages);
-
             // Send request to Expo API
             Http::post($this->expoEndpoint, $messages);
         }
