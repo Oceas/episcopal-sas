@@ -17,8 +17,6 @@ class NotificationController extends Controller
         // Fetch prayers with pagination
         $notifications = Notification::orderBy('created_at', 'desc')->paginate();
 
-        ray($notifications);
-
         return view('notifications', compact('notifications'));
     }
 
