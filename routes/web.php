@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
     })->name('prayers');
 
     Route::get('/devices', [\App\Http\Controllers\DevicesController::class, 'index'])->name('devices');
+
+    Route::get('/notifications', [\App\Http\Controllers\NotificationController::class, 'index'])->name('notifications');
 });
 
 Route::middleware('auth')->group(function () {
