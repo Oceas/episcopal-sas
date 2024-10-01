@@ -11,7 +11,9 @@
                 <div class="flex-1  p-4">
                     <livewire:recent-prayer-requests />
                 </div>
-                <div class="flex-1 bg-gray-200 p-4">Column 2</div>
+                <div class="flex-1 p-4">
+                    <livewire:core-stats />
+                </div>
             </div>
         </div>
     </div>
