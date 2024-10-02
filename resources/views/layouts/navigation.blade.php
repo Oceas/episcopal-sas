@@ -49,7 +49,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -76,6 +76,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('prayers')" :active="request()->routeIs('prayers')">
+                {{ __('Prayers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('devices')" :active="request()->routeIs('devices')">
+                {{ __('Devices') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
+                {{ __('Notifications') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -95,7 +104,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
