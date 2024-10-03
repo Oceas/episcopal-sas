@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
                         {{ __('Notifications') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admins')" :active="request()->routeIs('admins')">
+                        {{ __('Admins') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -85,6 +88,9 @@
             <x-responsive-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
                 {{ __('Notifications') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admins')" :active="request()->routeIs('admins')">
+                {{ __('Admins') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -113,3 +119,4 @@
         </div>
     </div>
 </nav>
+

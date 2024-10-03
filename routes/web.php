@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/devices', [\App\Http\Controllers\DevicesController::class, 'index'])->name('devices');
 
+    Route::get('/admins', [\App\Http\Controllers\AdminController::class, 'index'])->name('admins');
     Route::get('/notifications', [\App\Http\Controllers\NotificationController::class, 'index'])->name('notifications');
 });
 
