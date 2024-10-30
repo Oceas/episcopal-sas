@@ -30,6 +30,6 @@ class SendPrayersEmailJob implements ShouldQueue
             ->orderBy('created_at', 'desc')
             ->get();
 
-        Mail::to('workingwellconnection@yahoo.com'. 'oceass@gmail.com')->send(new RecentPrayersEmail($prayers));
+        Mail::to(['workingwellconnection@yahoo.com', 'oceass@gmail.com'])->send(new RecentPrayersEmail($prayers));
     }
 }
