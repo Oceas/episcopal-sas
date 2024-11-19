@@ -28,8 +28,8 @@ class LinksController extends Controller
         return response()->json([
             'success' => true,
             'data' => [
-                'message' => '',
-                'link' => '',
+                'message' => 'Enjoying the app? Buy me a cup of ☕!',
+                'link' => 'https://buymeacoffee.com/oceas',
             ]
         ], 200);
     }
